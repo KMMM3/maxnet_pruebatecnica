@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
             <h3>Lista de Tareas</h3>
             <router-link :to="{ name: 'tasks.create' }" class="btn btn-primary">Nueva Tarea</router-link>
         </div>
         
-        <div v-if="loading" class="text-center">
+        <div v-if="loading">
             <p>Cargando tareas...</p>
         </div>
         
-        <div v-else-if="tasks.length === 0" class="alert alert-info">
+        <div v-else-if="tasks.length === 0" >
             No hay tareas disponibles.
         </div>
         
@@ -34,8 +34,8 @@
                         <td>{{ task.email }}</td>
                         <td>{{ task.url_referencia }}</td>
                         <td>
-                            <router-link :to="{ name: 'tasks.edit', params: { id: task.id } }" class="btn btn-sm btn-info me-2">Editar</router-link>
-                            <button @click="deleteTask(task.id)" class="btn btn-sm btn-danger">Eliminar</button>
+                            <router-link :to="{ name: 'tasks.edit', params: { id: task.id } }">Editar</router-link>
+                            <button @click="deleteTask(task.id)" >Eliminar</button>
                         </td>
                     </tr>
                 </tbody>

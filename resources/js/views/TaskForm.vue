@@ -3,7 +3,7 @@
         <h3>{{ isEditing ? 'Editar Tarea' : 'Nueva Tarea' }}</h3>
         
         <form @submit.prevent="saveTask">
-            <div class="mb-3">
+            <div>
                 <label for="titulo" class="form-label">Título</label>
                 <input 
                     type="text" 
@@ -17,7 +17,7 @@
                 <div v-if="errors.titulo" class="invalid-feedback">{{ errors.titulo[0] }}</div>
             </div>
             
-            <div class="mb-3">
+            <div>
                 <label for="descripcion" class="form-label">Descripción</label>
                 <textarea 
                     class="form-control" 
@@ -29,7 +29,7 @@
                 <div v-if="errors.descripcion" class="invalid-feedback">{{ errors.descripcion[0] }}</div>
             </div>
 
-            <div class="mb-3">
+            <div>
                 <label for="valor" class="form-label">Valor</label>
                 <input 
                     type="number" 
@@ -42,7 +42,7 @@
                 <div v-if="errors.valor" class="invalid-feedback">{{ errors.valor[0] }}</div>
             </div>
 
-            <div class="mb-3">
+            <div>
                 <label for="email" class="form-label">Correo</label>
                 <input 
                     type="text" 
@@ -55,7 +55,7 @@
                 <div v-if="errors.email" class="invalid-feedback">{{ errors.email[0] }}</div>
             </div>
 
-            <div class="mb-3">
+            <div>
                 <label for="url_referencia" class="form-label">Url</label>
                 <input 
                     type="text" 
@@ -68,9 +68,9 @@
                 <div v-if="errors.url_referencia" class="invalid-feedback">{{ errors.url_referencia[0] }}</div>
             </div>
             
-            <div class="d-flex justify-content-between">
-                <router-link :to="{ name: 'tasks.index' }" class="btn btn-secondary">Cancelar</router-link>
-                <button type="submit" class="btn btn-primary" :disabled="loading">
+            <div>
+                <router-link :to="{ name: 'tasks.index' }">Cancelar</router-link>
+                <button type="submit" :disabled="loading">
                     {{ loading ? 'Guardando...' : 'Guardar' }}
                 </button>
             </div>
